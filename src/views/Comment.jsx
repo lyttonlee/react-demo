@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import {Card, WhiteSpace, WingBlank, Button} from 'antd-mobile'
 
 export class Comment extends Component {
   static propTypes = {
@@ -15,8 +16,21 @@ export class Comment extends Component {
     const {comment, index} = this.props
     return (
       <div>
-        {comment.user}:{comment.content}
-        <button onClick = {() => this.deleteComment(index)}> Delete </button>
+        <WingBlank size='lg'>
+          <WhiteSpace size='lg' />
+            <Card>
+              <Card.Header 
+                title={comment.user}
+              />
+              <Card.Body>
+                <div>{comment.content}</div>
+              </Card.Body>
+              <Card.Footer extra = {
+                <Button type='warning' size='small' onClick = {() => this.deleteComment(index)}> Delete </Button>
+              }/>
+            </Card>
+          <WhiteSpace size='lg'/>
+        </WingBlank>
       </div>
     )
   }

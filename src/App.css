@@ -6,7 +6,9 @@
 
 .App {
   background-color: #282c34;
-  min-height: 100vh;
+  padding: 6vh 0;
+  width: 100vw;
+  min-height: 88vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,4 +26,31 @@
   to {
     transform: rotate(360deg);
   }
+}
+.topbar {
+  height: 6vh;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100vw;
+}
+.footbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 6vh;
+  background-color: rgb(40, 113, 207);
+  display: flex;
+  z-index: 10;
+}
+.nav {
+  flex: 1;
+  line-height: 6vh;
+  text-align: center;
+  font-size: calc(10px + 2vmin);
+  color: aliceblue;
+}
+.active {
+  font-size: calc(12px + 2vmin);
+  color: rgb(190, 14, 58);
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {NavBar, Icon} from 'antd-mobile'
+// import {NavBar, Icon} from 'antd-mobile'
 
 import AddComent from './AddComent'
 import CommentsList from './CommentsList'
@@ -26,17 +26,8 @@ export class Home extends Component {
     const {addComment, comments, deleteComment} = this.props
     return (
       <div>
-        <NavBar
-          mode="dark"
-          leftContent="Back"
-          onLeftClick = {() => this.back()}
-          rightContent={[
-            <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
-            <Icon key="1" type="ellipsis" />,
-          ]}
-        >NavBar</NavBar>
-        <AddComent addComment = {addComment}/>
         <CommentsList comments = {comments} deleteComment = {deleteComment}/>
+        <AddComent addComment = {addComment}/>
       </div>
     )
   }

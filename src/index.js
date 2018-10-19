@@ -9,8 +9,7 @@ import './index.css'
 const APP = (
   <Provider store = {store}>
     <BrowserRouter>
-      <Route path='/' component = {App}>
-      </Route>
+      <Route path='/' component = {App} />
     </BrowserRouter>
   </Provider>
   )

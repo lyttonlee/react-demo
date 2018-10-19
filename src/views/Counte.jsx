@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import {List, InputItem, Button} from 'antd-mobile'
 
 import {increament, decreament} from '../reducer/actions'
 
@@ -13,9 +14,9 @@ class Counte extends Component {
   state = {
     value: ''
   }
-  inputChange = e => {
+  inputChange = val => {
     const reg = /^[1-9]+[0-9]*]*$/
-    const value = e.target.value
+    const value = val
     // console.log(value)
     if (reg.test(value)) {
       const newvalue = parseInt(value)
@@ -38,9 +39,12 @@ class Counte extends Component {
     return (
       <div>
         <p>看我表演{counter}</p>
-        <input type="text" placeholder='请输入要加减的数字' value = {this.state.value} onChange = {(e) => this.inputChange(e)}/>
-        <button onClick={() => increament(this.state.value)}>+</button>
-        <button onClick={() => decreament(this.state.value)}>-</button>
+        <List>
+          <InputItem value={this.state.value} placeholder='要加减的数字' type='number' clear onChange={value => this.inputChange(value)}>请输入</InputItem>
+        </List>
+        {/* <input type="text" placeholder='请输入要加减的数字' value = {this.state.value} onChange = {(e) => this.inputChange(e)}/> */}
+        <Button type='warning' disabled={this.state.value === '' ? true : false} onClick={() => increament(this.state.value)}>+</Button>
+        <Button type='primary' disabled={this.state.value === '' ? true : false} onClick={() => decreament(this.state.value)}>-</Button>
       </div>
     )
   }

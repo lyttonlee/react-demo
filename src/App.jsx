@@ -13,9 +13,11 @@ class App extends Component {
     this.props.history.goBack()
   }
   render() {
+    // const {}
     return (
       <div>
         <NavBar
+          className='topbar'
           mode="dark"
           leftContent="Back"
           onLeftClick = {() => this.back()}
@@ -23,18 +25,19 @@ class App extends Component {
             <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
             <Icon key="1" type="ellipsis" />,
           ]}
-        >NavBar</NavBar>
-        <header>
-          <img src={logo} className="App-logo" alt="logo" />
-          <NavLink to='/home'>home</NavLink>
-          <NavLink to='/counte'>counte</NavLink>
-        </header>
+        >{this.props.location.pathname}</NavBar>
+        
         <div className="App">
+          <img src={logo} className="App-logo" alt="logo" /> 
           <Switch>
             <Route path='/home' component = {Home}/>
             <Route path='/counte' component = {Counte}/>
             <Redirect to='/home'/>
           </Switch>
+        </div>
+        <div className='footbar'>
+          <NavLink activeClassName='active' className='nav' to='/home'>home</NavLink>
+          <NavLink activeClassName='active' className='nav' to='/counte'>counte</NavLink>
         </div>
       </div>
     )
