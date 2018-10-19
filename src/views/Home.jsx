@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import {NavBar, Icon} from 'antd-mobile'
 
 import AddComent from './AddComent'
 import CommentsList from './CommentsList'
@@ -16,28 +17,24 @@ export class Home extends Component {
   componentWillMount () {
     this.props.getComments()
   }
-  // state = {
-  //   comments: []
-  // }
-  // addComment = comment => {
-  //   const {comments} = this.state
-  //   comments.unshift(comment)
-  //   this.setState(
-  //     comments
-  //   )
-  // }
-  // deleteComment = indexc => {
-  //   const {comments} = this.state
-  //   const newComments = comments.filter((c, index) => index !== indexc)
-  //   this.setState({
-  //     comments: newComments
-  //   })
-  // }
-  render() {
+  back = () => {
     console.log(this.props)
+    this.props.history.goBack()
+  }
+  render() {
+    // console.log(this.props)
     const {addComment, comments, deleteComment} = this.props
     return (
       <div>
+        <NavBar
+          mode="dark"
+          leftContent="Back"
+          onLeftClick = {() => this.back()}
+          rightContent={[
+            <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
+            <Icon key="1" type="ellipsis" />,
+          ]}
+        >NavBar</NavBar>
         <AddComent addComment = {addComment}/>
         <CommentsList comments = {comments} deleteComment = {deleteComment}/>
       </div>

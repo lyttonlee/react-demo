@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 import {Provider} from 'react-redux'
 
 import store from './reducer/store'
@@ -9,7 +9,8 @@ import './index.css'
 const APP = (
   <Provider store = {store}>
     <BrowserRouter>
-      <App />
+      <Route path='/' component = {App}>
+      </Route>
     </BrowserRouter>
   </Provider>
   )
