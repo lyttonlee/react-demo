@@ -19,7 +19,7 @@ export const getComments = () => {
     setTimeout(() => { 
       const comments = [{user: 'lytton', content: 'hello world!'}]
       dispatch(getCommentsSync(comments))
-    },1000)
+    }, 100)
   }
 }
 const getCommentsSync = comments =>({
